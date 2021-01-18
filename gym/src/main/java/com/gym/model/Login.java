@@ -1,5 +1,5 @@
 package com.gym.model;
-//pojo class
+//pojo class (plain old java object)
 public class Login {
 	
 	private String username;
