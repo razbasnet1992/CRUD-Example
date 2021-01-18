@@ -4,15 +4,18 @@ package com.gym.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.gym.dao.MemberDao;
 import com.gym.dao.MemberInfoImp;
 import com.gym.model.Login;
 import com.gym.model.MemberInfo;
+import com.gym.model.User;
 
 @Controller
 public class MainController {
@@ -45,7 +48,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/member", method = RequestMethod.POST)
-	public ModelAndView saveMember(@ModelAttribute("member") MemberInfo member) {
+	public ModelAndView saveMember(@ModelAttribute MemberInfo member) {
 		memberDao.saveMember(member);
 		//System.out.println("success");
 		ModelAndView mv = new ModelAndView("redirect://viewmembers");
@@ -92,4 +95,16 @@ public class MainController {
 		ModelAndView mv = new ModelAndView("redirect://viewmembers");
 		return mv;
 	}
+	
+	@RequestMapping(value ="/new")
+	public String newPage() {
+		return "new";
+		
+	}
+	
+	@RequestMapping(value ="/signup",method = RequestMethod.POST)
+	public String newSignup(@ModelAttribute User user,Model model) {
+		model.addAttribute("user", user);
+		return "signup";
+}
 }
