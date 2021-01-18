@@ -3,6 +3,8 @@ package com.gym.model;
 public class Login {
 	String registrationNumber = "101";
 	
+	
+	//testing 
 	private String username;
 	private String password;
 	
