@@ -1,5 +1,5 @@
 package com.gym.model;
-
+//pojo class
 public class Login {
 	
 	private String username;
