@@ -1,6 +1,7 @@
 package com.gym.model;
 //pojo class (plain old java object)
 public class Login {
+	String registrationNumber = 10;
 	
 	private String username;
 	private String password;
